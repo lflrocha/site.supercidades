@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html ng-app="CurriculoApp">
+
+    <head>
+    
+        <meta charset="utf-8">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
+        <link rel="stylesheet" href="css/materialize.css">
+        
+        <link rel="stylesheet" href="css/template.css">
+        
+        <link rel="stylesheet" href="css/animate.css">
+        
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        
+        <script src="js/angular.js"></script>
+        
+        <script type="application/javascript" src="js/wow.js"></script>
+        
+        <script type="application/javascript" src="js/vivus.js"></script>
+        
+        <script type="application/javascript" src="js/pathformer.js"></script>
+        
+        <script>
+        
+            new WOW().init();
+            
+        </script>
+        
+        <script src="js/materialize.js"></script>
+        
+        <script type="application/javascript" src="js/main.js"></script>
+        
+        <script type="application/javascript" src="js/controllers/telaInicialController.js"></script>
+        
+        <script type="text/javascript" src="js/factory/apiFactory.js"></script>
+
+        <script type="text/javascript" src="js/controllers/jogoController.js"></script>
+        
+        <script src="https://use.fontawesome.com/7cb9e58970.js"></script>
+        
+        <script src="js/angular-route.js"></script>
+        
+        <script type="text/javascript" src="js/ngMask.js"></script>
+        
+    </head>
+    
+    <body ng-controller="TelaInicialCtrl">
+        
+    <ul id="slide-out" class="side-nav">
+        
+        <li>
+
+        <div class="userView">
+
+            <div class="background">
+
+                <img src="resources/macbook-1711344_1280.jpg">
+
+            </div>
+
+            <!--<a href="#!user"><img class="circle" src="resources/download.png"></a>-->
+
+            <!--<a href="#!email"><span class="white-text email">brenoprata10@gmail.com</span></a>-->
+            
+            <!--<a class="white-text wow fadeInRight">{{desenvolvedor}}</a>-->
+            
+            <br/>
+            
+            <a class="waves-effect waves-light " style="margin-right: 7%" ng-click="idiomaPortugues(true)"><img style="height:50px;" src="resources/brazil.png"></a>
+                          
+            <a class="waves-effect waves-light " style="margin-right: 7%" ng-click="idiomaIngles()"><img style="height:50px;" src="resources/united-states.png"></a>
+
+            <!--<a class="waves-effect waves-light " style="margin-right: 7%" ng-click="idiomaEspanhol()"><img style="height:50px;" src="resources/spain.png"></a>-->
+
+        </div>
+
+        </li>
+        
+        <li><a href="index.html#!/"><i class="fa fa-home iconeMenu" aria-hidden="true" onclick="window.scrollTo(0,0)"></i>{{inicio}}</a></li>
+        <li><a class="waves-effect waves-light" onclick="window.scrollTo(0,0)" href="index.html#!/jogo"><i class="fa fa-gamepad iconeMenu " aria-hidden="true"></i>{{sobre}}</a></li>
+        
+        <li><a class="waves-effect waves-light" href="index.html#!/sobre" onclick="window.scrollTo(0,0)"><i class="fa fa-info-circle iconeMenu" aria-hidden="true"></i>{{ranking}}</a></li>
+                          
+        <!--<li><a class="waves-effect waves-light" href="index.html#!/cards" onclick="window.scrollTo(0,0)"><i class="fa fa-id-card iconeMenu" aria-hidden="true"></i>{{cartas}}</a></li>-->
+
+        
+    </ul>
+    
+        <main>
+        
+            <section>
+            
+                <nav class="wow fadeInDown menuMobile" >
+                    
+                    <div class="nav-wrapper corComponentesPrincipais">
+                        
+                      <a class="btn waves-light waves-effect hide-on-large-only animated fadeInDown button-collapse" style="margin-left:3%;background-color:#6f6bf7;border: none; box-shadow: none" data-activates="slide-out" ng-click="abrirMenu()">
+
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+
+                        <span >Menu</span>
+
+                </a>
+                        
+                      <center><a href="index.html#!/" onclick="window.scrollTo(0,0)" class="waves-effect waves-light brand-logo logo itemLinhaInferior hide-on-large-only">
+                          <i class="fa fa-trophy" style="font-size:1.4em"></i><span class="hide-on-small-only">{{logo}}</span>
+                          <div class="linhaInferior"></div>
+                      </a></center>
+                        
+                      <a href="index.html#!/" class="waves-effect waves-light brand-logo logo itemLinhaInferior hide-on-med-and-down">
+                          <i class="fa fa-home" style="font-size:1.4em"></i><span class="hide-on-small-only">{{logo}}</span>
+                          <div class="linhaInferior"></div>
+                      </a>
+
+                      <ul id="nav-mobile" class="right hide-on-med-and-down">
+                          <a class="waves-effect waves-light itemLinhaInferior" href="index.html#!/">
+                              <i class="fa fa-home iconeMenu" aria-hidden="true"></i> {{inicio}}
+                              <div class="linhaInferior"></div>
+                          </a>
+                          
+                          <a class="waves-effect waves-light itemLinhaInferior" href="index.html#!/jogo">
+                              <i class="fa fa-gamepad iconeMenu" aria-hidden="true"></i> {{sobre}}
+                            <div class="linhaInferior"></div>
+                          </a>
+                          
+                          
+                          <a class="waves-effect waves-light itemLinhaInferior" href="index.html#!/sobre">
+                          <i class="fa fa-info-circle iconeMenu" aria-hidden="true"></i> {{ranking}}
+                            <div class="linhaInferior"></div>
+                          </a>
+
+                          <!--<a class="waves-effect waves-light itemLinhaInferior" href="index.html#!/cards"><i class="fa fa-certificate iconeMenu " aria-hidden="true"></i>{{cartas}}-->
+                          <!--  <div class="linhaInferior"></div>-->
+                          <!--</a>-->
+                          
+                          
+                          
+                          <a class="waves-effect waves-light btn-floating tooltipped" data-position="bottom" data-delay="50" data-tooltip="Português BR" ng-click="idiomaPortugues()"><img style="height:40px;" src="resources/brazil.png"></a>
+                          
+                          <a class="waves-effect waves-light btn-floating tooltipped" data-position="bottom" data-delay="50" data-tooltip="English" ng-click="idiomaIngles(true)"><img style="height:40px;" src="resources/united-states.png"></a>
+ 
+                          <!--<a class="waves-effect waves-light btn-floating tooltipped" data-position="bottom" data-delay="50" data-tooltip="Español - En breve" ng-click="idiomaEspanhol()"><img style="height:40px;" src="resources/spain.png"></a>-->
+                          
+                        </ul>
+
+                    </div>
+                    
+                </nav> 
+                
+            </section>
+            
+            <div class="ng-view"></div>
+        
+        </main>
+    
+    </body>
+    
+    <footer class=" row page-footer blue wow fadeInUp;">
+            
+                
+            <!--    <div class="wow fadeInUp larguraCamposFooter">-->
+            <!--        <center><span class="white-text flow-text"><strong>Materialize</strong></span></center>-->
+            <!--    </div>-->
+                
+            <!--    <div class="wow fadeInRight larguraCamposFooter">-->
+            <!--        <center><a onclick="window.open('http://materializecss.com/')" href=""><img class="imagemFooter" src="resources/materialize.png"></a></center>-->
+            <!--    </div>-->
+                
+            <!--</div>-->
+        
+            <div class="footer-copyright">
+                
+            <div class="container">
+                {{footer2}}
+            </div>
+                
+        </div>
+        
+    </footer>
+
+</html>

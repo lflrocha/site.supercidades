@@ -1,0 +1,266 @@
+<!-- ESSA É A PAGINA QUE VAI HOSPEDAR O JOGO --> 
+<div ng-controller="gameController" ng-init="carregarModal()">
+<div style="display:flex;justify-content:space-around;width:100%;flex-wrap:wrap;">
+    
+    <div id="cartaJogador" class="card wow slideInUp  cartaoCurso hoverable" style="opacity:{{opacidadeCarta}}">
+        
+        <center><p style="color:white;font-size:16px">Jogador: {{human.name}} - {{placarHuman}}</p></center>
+        
+        <center><div style="width:60%;display:flex;justify-content:space-between;background-color: #e9ebee;border-radius:20px;margin-top:-3%">
+    
+            <div style="width:90%;">
+                <center>
+                <h5 class=" waves-effect waves-teal" style="font-size:18px;color:rgb(29,32,102)"> {{cartaHumano.Cidade}} - {{cartaHumano.UF}}</h5>
+                </center>
+            </div>
+        
+        </div></center>
+    
+        <div style="background-color:#e9ebee;padding-top: 3%;padding-bottom:3%;">
+            <center><div class="card-image waves-effect waves-teal waves-light" style="border-radius:20px;width:90%">
+            
+                
+                    <img class="activator imagemCurso" src="resources/{{cartaHumano.UF}}.jpg">
+        
+            </div></center>
+        </div>
+    
+        <center><ul class="card-content" style="display:flex;justify-content:space-between;flex-wrap: wrap;width:90%;background-color: #e9ebee;border-radius:20px;margin-top:0.2%">
+    
+            <a href="" ng-click="calcularResultadoPartida(cartaHumano.Dados.IDH,cartaComputador.Dados.IDH,'IDH')" class="opcaoCard itemLinhaInferior" style="width:35%;text-align: left;">
+                
+                <p class="fontCard" title="Índice de Desenvolvimento Humano Municipal (2010)">IDH</p>
+                <div class="linhaInferior"></div>
+            </a>
+            
+            <a href="" style="width:35%;color:rgb(29,32,102);text-align: right;">
+                
+                <p class="fontCard">{{cartaHumano.Dados.IDH}}</p>
+                
+            </a>
+            
+            <a href="" class="opcaoCard" ng-click="calcularResultadoPartida(cartaHumano.Dados.PopulacaoEstimada,cartaComputador.Dados.PopulacaoEstimada,'População')" style="width:35%;margin-top:8%;text-align: left;">
+                
+                <p class="fontCard" title="População estimada (2016)">População</p>
+                
+            </a>
+            
+            <div style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: right;">
+                
+                <p id="populacao" name="populacao" class="fontCard">{{cartaHumano.Dados.PopulacaoEstimada}} hab</p>
+                
+            </div>
+            
+            <a href="" ng-click="calcularResultadoPartida(cartaHumano.Dados.Urbanizacao,cartaComputador.Dados.Urbanizacao,'Urbanização')" class="opcaoCard" style="width:35%; margin-top:8%;text-align: left;">
+                
+                <p class="fontCard" title="Taxa de escolarização de 6 a 14 anos de idade (2010)">Escolarização</p>
+                
+            </a>
+            
+            <div style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: right;">
+                
+                <p class="fontCard">{{cartaHumano.Dados.Urbanizacao}}%</p>
+                
+            </div>
+            
+            <a href="" ng-click="calcularResultadoPartida(cartaHumano.Dados.SalarioMedio,cartaComputador.Dados.SalarioMedio,'Salário Médio')" class="opcaoCard" style="width:60%; margin-top:8%;text-align: left;">
+                
+                <p class="fontCard" title="Salário médio mensal dos trabalhadores formais (2014)">Salário</p>
+                
+            </a>
+            
+            <div  style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: right;">
+                
+                <p class="fontCard">{{cartaHumano.Dados.SalarioMedio}} <span title="em Salários Mínimos">(S.M)</span></p>
+                
+            </div>
+            
+            <a href="" ng-click="calcularResultadoPartida(cartaHumano.Dados.Arborizacao,cartaComputador.Dados.Arborizacao,'Arborização')" class="opcaoCard" style="width:35%; margin-top:8%;text-align: left;">
+                
+                <p class="fontCard" title="Arborização de vias públicas (2010)">Arborização</p>
+                
+            </a>
+            
+            <div  style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: right;">
+                
+                <p class="fontCard">{{cartaHumano.Dados.Arborizacao}}%</p>
+                
+            </div>
+            
+            <a href="" ng-click="calcularResultadoPartida(cartaHumano.Dados.Esgotamento,cartaComputador.Dados.Esgotamento,'Saneamento')" class="opcaoCard" style="width:35%; margin-top:8%;text-align: left;">
+                
+                <p class="fontCard" title="Esgotamento sanitário adequado (2010)">Saneamento</p>
+                
+            </a>
+            
+            <div  style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: right;">
+                
+                <p class="fontCard" title="Esgotamento sanitário adequado (2010)">{{cartaHumano.Dados.Esgotamento}}%</p>
+                
+            </div>
+            
+        </ul></center>
+    
+    </div>
+    
+    <div style="margin-top:10%;margin-bottom:10%">
+    
+        <center><h5 style="color:rgb(29,32,102)" ng-hide="esconderCarta">Opção: {{opcao}}</h5></center>
+    
+        <center><img class="imagemCurso" src="resources/arrows.png"></center>
+        
+        <center><a ng-click="proximaRodada()" style="margin-top:2%;width:300px" ng-hide="esconderCarta" class="btn waves-effect waves-light botaoProximaRodada" >Próxima Rodada <i class="fa fa-arrow-right" aria-hidden="true"></i></a></center>
+        
+        <center><a ng-click="finalizarPartida()" style="margin-top:2%; width:300px" ng-hide="esconderCarta" class="btn waves-effect waves-light botaoFinalizar" ><i class="fa fa-arrow-left" aria-hidden="true"></i> Finalizar Partida</a></center>
+        
+    </div>
+
+    <div class="card wow slideInUp  cartaoCurso hoverable" ng-hide="!esconderCarta">
+    
+        <img src="resources/backcard.jpg">
+    
+    </div>
+
+    <div id="cartaComputador" class="card wow slideInUp  cartaoCurso hoverable" ng-hide="esconderCarta">
+    
+        <center><p style="color:white;font-size:16px">Jogador: {{computer.name}} - {{placarComputer}}</p></center>
+    
+        <center><div style="width:60%;display:flex;justify-content:space-between;background-color: #e9ebee;border-radius:20px;margin-top:-3%">
+    
+            <div style="width:90%;">
+                
+                <h5 class=" waves-effect waves-teal" style="font-size:18px;color:rgb(29,32,102)">{{cartaComputador.Cidade}} - {{cartaComputador.UF}}</h5>
+                
+            </div>
+        
+        </div></center>
+    
+        <div style="background-color:#e9ebee;padding-top: 3%;padding-bottom:3%;">
+            <center><div class="card-image waves-effect waves-teal waves-light" style="border-radius:20px;width:90%">
+            
+                
+                    <img class="activator imagemCurso" src="resources/{{cartaComputador.UF}}.jpg">
+        
+            </div></center>
+        </div>
+    
+        <center><div class="card-content" style="display:flex;justify-content:space-between;flex-wrap: wrap;width:90%;background-color: #e9ebee;border-radius:20px;">
+    
+            <div href="" style="width:35%;color:rgb(29,32,102);text-align: left;">
+                
+                <p class="fontCard">IDH</p>
+                
+            </div>
+            
+            <div style="width:35%;color:rgb(29,32,102);text-align: right;">
+                
+                <p class="fontCard">{{cartaComputador.Dados.IDH}}</p>
+                
+            </div>
+            
+            <div href="" style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: left;">
+                
+                <p class="fontCard">População</p>
+                
+            </div>
+            
+            <div style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: right;">
+                
+                <p class="fontCard">{{cartaComputador.Dados.PopulacaoEstimada}} hab</p>
+                
+            </div>
+            
+            <div href="" style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: left;">
+                
+                <p class="fontCard">Escolarização</p>
+                
+            </div>
+            
+            <div style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: right;">
+                
+                <p class="fontCard">{{cartaComputador.Dados.Urbanizacao}}%</p>
+                
+            </div>
+            
+            <div href="" style="width:60%; margin-top:8%;color:rgb(29,32,102);text-align: left;">
+                
+                <p class="fontCard">Salário Médio</p>
+                
+            </div>
+            
+            <div style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: right;">
+                
+                <p class="fontCard">{{cartaComputador.Dados.SalarioMedio}} (S.M)</p>
+                
+            </div>
+            
+            <div href="" style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: left;">
+                
+                <p class="fontCard">Arborização</p>
+                
+            </div>
+            
+            <div style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: right;">
+                
+                <p class="fontCard">{{cartaComputador.Dados.Arborizacao}}%</p>
+                
+            </div>
+            
+            <div href="#" style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: left;">
+                
+                <p class="fontCard">Saneamento</p>
+                
+            </div>
+            
+            <div style="width:35%; margin-top:8%;color:rgb(29,32,102);text-align: right;">
+                
+                <p class="fontCard">{{cartaComputador.Dados.Esgotamento}}%</p>
+                
+            </div>
+            
+        </div></center>
+    
+    </div>
+
+</div>
+
+<!-- Modal Structure -->
+<div id="modalEndGame" class="modal" style="border-radius:20px;background-color:#e9ebee">
+    <div class="modal-content">
+        <h4 class="opcaoCard"><i class="fa fa-angle-right" aria-hidden="true"></i> Fim de Jogo!</h4>
+        <div class="divider opcaoCard"></div>
+        <p class="opcaoCard"><i class="fa fa-check" aria-hidden="true"></i> {{winnerGame}}</p>
+    </div>
+    <div class="modal-footer">
+        
+        <a ng-click="recarregarJogo()" class="modal-action modal-close waves-effect waves-green btn-flat opcaoCard"><i class="fa fa-repeat" aria-hidden="true"></i> Jogar Novamente</a>
+        
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat opcaoCard"><i class="fa fa-home" aria-hidden="true"></i> Tela Inicial</a>
+    </div>
+</div>
+
+<div id="modalInputNome" class="modal" style="border-radius:20px;background-color:#e9ebee">
+    <div class="modal-content">
+        <h4 class="opcaoCard"><i class="fa fa-angle-right" aria-hidden="true"></i> Dados do Jogo</h4>
+        <div class="divider opcaoCard"></div>
+        <div class="input-field">
+            <label for="nome">Nome:</label>
+            <input ng-model="human.name" type="text" id="nome" style="margin-top:2%"/>
+        </div>
+        <p class="range-field">
+          <label for="test5">Selecione a quantidade de rodadas: (Padrão: 10)</label>
+          <input type="range" id="test5" min="0" max="20" ng-model="qtdPartidas"/>
+        </p>
+    </div>
+    <div class="modal-footer">
+        
+        <a ng-click="validarNome()" class="modal-action modal-close waves-effect waves-green btn-flat opcaoCard"><i class="fa fa-times" aria-hidden="true"></i> Fechar</a>
+        
+        <a ng-click="validarNome()" class="modal-action modal-close waves-effect waves-green btn-flat opcaoCard"><i class="fa fa-gamepad" aria-hidden="true"></i> Começar!</a>
+        
+    </div>
+</div>
+
+</div>
+         
+

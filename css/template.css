@@ -1,0 +1,441 @@
+html{
+    
+    background-color: #e9ebee;
+    
+    background-repeat: no-repeat;
+    
+    text-align: justify;
+    
+    line-height: 10%;
+    
+}
+
+.botaoProximaRodada{
+    
+    background-color:#e9ebee;
+    
+    color:rgb(29,32,102);
+    
+    border:1.5px solid rgb(29,32,102);
+    
+    transition: 0.4s;
+    
+    transition-timing-function:ease-in-out; 
+    
+    -webkit-transition: 0.4s;
+    
+    -webkit-transition-timing-function:ease-in-out; 
+    
+}
+
+.botaoProximaRodada:hover{
+    
+    color:white;
+    
+    background-color:rgb(29,32,102);
+    
+    transition: 0.4s;
+    
+    transition-timing-function:ease-in-out; 
+    
+    -webkit-transition: 0.4s;
+    
+    -webkit-transition-timing-function:ease-in-out; 
+    
+}
+
+.botaoFinalizar{
+    
+    background-color:#e9ebee;
+    
+    color:rgb(29,32,102);
+    
+    border:1.5px solid rgb(29,32,102);
+    
+    transition: 0.4s;
+    
+    transition-timing-function:ease-in-out; 
+    
+    -webkit-transition: 0.4s;
+    
+    -webkit-transition-timing-function:ease-in-out; 
+    
+}
+
+.botaoFinalizar:hover{
+    
+    border:1.5px solid red;
+    
+    color:white;
+    
+    background-color:red;
+    
+    transition: 0.4s;
+    
+    transition-timing-function:ease-in-out; 
+    
+    -webkit-transition: 0.4s;
+    
+    -webkit-transition-timing-function:ease-in-out; 
+    
+}
+
+.opcaoCard {
+    
+    color:rgb(29,32,102);
+    
+}
+
+.opcaoCard:hover{
+    
+    color: blue;
+    
+    transition: 0.5s;
+    
+    transition-timing-function:ease-in-out; 
+    
+    -webkit-transition: 0.5s;
+    
+    -webkit-transition-timing-function:ease-in-out; 
+    
+}
+
+.card-content {
+    margin-bottom: 5px;
+}
+
+.iconeMenu{
+    
+    margin-left: -5%; 
+    margin-right: 5%;
+    
+}
+
+.iconeLista{
+    
+    margin-left: -1%; 
+    margin-right: 1%;
+}
+
+.corComponentesPrincipais{
+    
+    background-color: #6f6bf7;
+    
+}
+
+.logo{
+    
+    margin-left: 1.5% ;
+    
+}
+
+/*.brand-logo:hover{*/
+    
+/*    background-color: blueviolet;*/
+    
+/*    border-top-left-radius: 20px;*/
+    
+/*    border-top-right-radius: 20px;*/
+    
+/*    transition: 0.4s;*/
+        
+/*    transition-timing-function: ease-in-out;*/
+    
+/*    -webkit-transition: 0.4s;*/
+        
+/*    -webkit-transition-timing-function: ease-in-out;*/
+    
+/*}*/
+
+/*.brand-logo{*/
+    
+/*    transition: 0.4s;*/
+        
+/*    transition-timing-function: ease-in-out;*/
+    
+/*    -webkit-transition: 0.4s;*/
+        
+/*    -webkit-transition-timing-function: ease-in-out;*/
+    
+/*}*/
+
+
+.conteudo{
+    
+    display:flex;
+    
+    flex-direction: column;
+    
+    flex-wrap: wrap;
+    
+    color: darkslategray;
+    
+    background-color: white;
+    
+    border-radius: 20px;
+    
+}
+
+.listaQualificacoes {
+    
+    display:flex;
+    
+    flex-wrap: wrap;
+    
+    justify-content: space-around;
+    
+    width: 100%;
+    
+}
+
+.itemLista{
+    
+    width: 47%;
+    
+}
+
+.painelLateral{
+    
+    color: white;
+    
+    display: flex;
+    
+    flex-direction: column;
+    
+    align-items: center;
+    
+    background-color: #2196F3;
+    
+    box-shadow: 1px 1px 3px #888888;
+    
+    border-radius: 20px;
+    
+}
+
+.fotoPerfil{
+    
+    margin-top: 5%;
+    
+    border-radius: 50%;
+    
+    width: 55%;
+    
+}
+
+.subMenu{
+    
+    color: dimgray;
+    
+}
+
+.cartaVerso {
+    
+    background-color: #bcbaba;
+    
+    border-radius: 20px;
+    
+    padding-top: 13%;
+    
+    padding-left: 2% !important;
+    
+    padding-right: 2% !important;
+    
+    padding-bottom: 13%;
+    
+    width: 20%;
+    
+    
+    
+}
+
+.conteudoPrincipal{
+    
+
+    
+}
+
+.parallax{
+    
+    position:static;
+    
+}
+
+.campoCursos{
+    
+    display: flex;
+    
+    flex-wrap: wrap;
+    
+    flex-direction: row;
+    
+    justify-content: space-around;
+    
+    background-attachment: fixed;
+    
+    background-color: #e9ebee;
+    
+    border-radius:16px;
+    
+    width: 100%;
+    
+}
+
+.cartaoCurso{
+    
+    display: flex;
+    
+    flex-direction: column;
+    
+    justify-content: space-around;
+    
+    border-radius:10px;
+    
+    width: 30%;
+    
+    height: 550px;
+    
+    background-color: #6f6bf7;
+    
+    
+}
+
+.fonteCard {
+    
+    font-size: 18px;
+    
+}
+
+.imagemCurso{
+    
+    height:250px;
+    
+    
+}
+
+.imagemFooter{
+    
+    height:100px;
+    
+    float:left;
+    
+}
+
+.slider .indicators .indicator-item{
+    
+    background-color: #6f6bf7;
+    
+}
+
+.slider .indicators .indicator-item.active{
+    
+    background-color: darkseagreen;
+    
+}
+
+.linhaInferior{
+    
+    background-color: white;
+    
+    position: absolute;
+    
+    bottom: 0;
+    
+    left: 0;
+    
+    overflow: hidden;
+    
+    width: 0;
+    
+    height: 6%;
+    
+    transition: 0.4s;
+        
+    transition-timing-function: ease-in-out;
+    
+    -webkit-transition: 0.4s;
+        
+    -webkit-transition-timing-function: ease-in-out;
+    
+}
+
+.itemLinhaInferior:hover .linhaInferior{
+    
+    width: 100%;
+    
+}
+
+.itemLinhaInferior{
+    
+    position: relative;
+    
+}
+
+.camposFooter{
+
+   display:flex;
+
+   width:100%;
+
+   flex-wrap:wrap;
+
+   justify-content:space-around;
+
+   flex-direction:row;
+
+}
+
+.larguraCamposFooter{
+        
+    width: 25%;
+
+}
+
+@media(max-width: 992px){
+    
+    .menuMobile{
+        
+        /*position: fixed;
+        
+        z-index: 150;*/
+        
+    }
+    
+    .cartaoCurso{
+    
+    display: flex;
+    
+    flex-direction: column;
+    
+    border-radius:10px;
+    
+    width: 100%;
+    
+    height: 500px;
+    
+    }
+    
+    .parallax-container{
+        
+        max-height: 350px;
+        
+    }
+    
+    .larguraCamposFooter{
+        
+        margin-top: 3%;
+        
+        width: 100%;
+        
+    }
+    
+    .imagemFooter{
+        
+        float:none;
+        
+    }
+
+}
+
+.footer-copyright {
+    text-align: center;
+}
